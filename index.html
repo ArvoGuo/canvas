@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<canvas id ="myCanvas" width='400' height='200'>
+	<canvas id ="myCanvas" width='1000' height='400'>
 		not support canvas
 		
 	</canvas>
@@ -76,25 +76,48 @@
 	//     ctx.closePath();
 	//     ctx.fill();
 	// }, 30);
+	
+	//
+	// var posX = 20,
+	// 	   posY = 100;
+	// var vx = 10,
+	//     vy = -10,
+	//     gravity = 1;
 
-	var posX = 20,
- 	    posY = 100;
-	var vx = 10,
-	    vy = -10,
-	    gravity = 1;
-
-	setInterval(function() {
-		ctx.fillStyle = "black";
-	    ctx.fillRect(0,0,canvas.width, canvas.height);
-	    posX += vx;
-	    posY += vy;
-	    vy += gravity;
-	    ctx.beginPath();
-	    ctx.fillStyle = "white";
-	    ctx.arc(posX, posY, 10, 0, Math.PI*2, true); 
-	    ctx.closePath();
-	    ctx.fill();
-	},30);
+	// setInterval(function() {
+	// 	ctx.fillStyle = "black";
+	//     ctx.fillRect(0,0,canvas.width, canvas.height);
+	//     posX += vx;
+	//     posY += vy;
+	//     vy += gravity;
+	//     ctx.beginPath();
+	//     ctx.fillStyle = "white";
+	//     ctx.arc(posX, posY, 10, 0, Math.PI*2, true); 
+	//     ctx.closePath();
+	//     ctx.fill();
+	// },30);
+	
+	//弹跳小球
+	// var posX = 20 ;
+	// var posY = 100;
+	// var vx  =10,vy = -10,gravity = 1,persentH= 0.95;
+	// setInterval(function(){
+	// 	ctx.fillStyle="black";
+	// 	ctx.fillRect(0,0,canvas.width , canvas.height);
+	// 	posX+=vx;
+	// 	posY+=vy;
+	// 	if (posY > canvas.height*persentH) {
+	// 		vy *= -0.8;
+	// 		vx *= 0.75;
+	// 		posY = canvas.height * persentH;
+	// 	};
+	// 	vy += gravity;
+	// 	ctx.beginPath();
+	// 	ctx.fillStyle = "white";
+	// 	ctx.arc(posX,posY,10,0,Math.PI*2,true);
+	// 	ctx.closePath();
+	// 	ctx.fill();
+	// },30);
 
 
 
