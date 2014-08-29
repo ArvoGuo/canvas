@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id ="myCanvas" width='400' height='200'>
+		not support canvas
+		
+	</canvas>
+	
+</body>
+<script>
+	var canvas = document.getElementById('myCanvas');
+	if (canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+	};
+	// ctx.beginPath();//开始绘制路径
+	// ctx.moveTo(20,20);//移动到
+	// ctx.lineTo(200,20);
+	// ctx.lineWidth=1.0;
+	// ctx.strokeStyle="#cc0000";
+	// ctx.stroke();// 进行线的着色，这时整条线才变得可见
+	// ctx.closePath();//闭合
+	// ctx.fillStyle="yellow";
+	// ctx.fillRect(50,50,200,100);
+	// ctx.strokeRect(10,10,200,100);
+
+	// ctx.clearRect(100,50,50,50);
+
+	// words
+	// ctx.font = "Bold 20px Arial";
+	// ctx.textAlign="left";
+	// ctx.fillStyle="#008600";
+	// ctx.fillText("Hello!",10,50);
+	// ctx.strokeText("Hello!",10,100);
+
+	//-----ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+	// ctx.beginPath();
+	// ctx.arc(60,60,50,0,Math.PI*2,true);
+	// ctx.fillStyle="#000000";
+	// ctx.fill();
+	
+	//-----ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+	// ctx.beginPath();
+	// ctx.arc(60,60,50,0,Math.PI*2,true);
+	// ctx.lineWidth=1.0;
+	// ctx.strokeStyle="#000";
+	// ctx.stroke();
+
+	//-----渐变色
+	// var myGradient = ctx.createLinearGradient(0,0,0,160);
+	// myGradient.addColorStop(0,"#BABABA");
+	// myGradient.addColorStop(1,"#636363");
+	// ctx.fillStyle=myGradient;
+	// ctx.fillRect(10,10,200,100);
+
+	//-----设置阴影
+	// ctx.shadowOffsetX = 10;
+	// ctx.shadowOffsetY = 10;
+	// ctx.shadowBlur = 5;//模糊度
+	// ctx.shadowColor = "rgba(0,0,0,0.5)";//设置阴影颜色
+	// ctx.fillRect(10,10,200,100);
+
+	// var posX = 20,
+ 	//     posY = 100;
+	// setInterval(function() {
+	//     ctx.fillStyle = "black";
+	//     ctx.fillRect(0,0,canvas.width, canvas.height);
+	//     posX += 1;
+	//     posY += 0.25;
+	//     ctx.beginPath();
+	//     ctx.fillStyle = "white";
+	//     ctx.arc(posX, posY, 10, 0, Math.PI*2, true); 
+	//     ctx.closePath();
+	//     ctx.fill();
+	// }, 30);
+
+	var posX = 20,
+ 	    posY = 100;
+	var vx = 10,
+	    vy = -10,
+	    gravity = 1;
+
+	setInterval(function() {
+		ctx.fillStyle = "black";
+	    ctx.fillRect(0,0,canvas.width, canvas.height);
+	    posX += vx;
+	    posY += vy;
+	    vy += gravity;
+	    ctx.beginPath();
+	    ctx.fillStyle = "white";
+	    ctx.arc(posX, posY, 10, 0, Math.PI*2, true); 
+	    ctx.closePath();
+	    ctx.fill();
+	},30);
+
+
+
+
+
+
+
+</script>
+</html>
