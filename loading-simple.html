@@ -25,10 +25,14 @@
 			this.thickness=15;
 			this.speed = 2;
 			this.init=function (argument) {
-				setInterval(function(){
-					this.updateCircle();
-					this.createCircle();
+				var self = this;
+				self.t = setInterval(function(){
+					self.updateCircle();
+					self.createCircle();
 				},16)
+			}
+			this.stop = function (){
+				clearInterval(this.t);
 			}
 			this.createCircle = function(){
 				ctx.save();
@@ -53,9 +57,11 @@
 				this.angleEnd=this.angleStart+this.angleDistant;
 			}
 
-			this.init();
+			//this.init();
 		}
-		circle();
+		var circle =  new circle();
+		circle.init();
+		//circle.stop();
 
 
 
