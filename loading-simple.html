@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading-simple</title>
+</head>
+<body>
+	<canvas id="mycanvas"></canvas>	
+</body>
+	<script>
+	var canvas = document.getElementById('mycanvas'),
+		ctx = canvas.getContext('2d'),
+		cw = canvas.width = 400,
+		ch = canvas.height = 400,
+		dToR = function (degress){
+			return degress * (Math.PI /180);
+		};
+		function circle(){
+			this.x=(cw/2) ;
+			this.y=(ch/2) ;
+			this.radius=90;
+			this.angleStart=0;
+			this.angleDistant=180;
+			this.angleEnd=this.angleStart+this.angleDistant;
+			this.thickness=15;
+			this.speed = 2;
+			this.init=function (argument) {
+				setInterval(function(){
+					this.updateCircle();
+					this.createCircle();
+				},16)
+			}
+			this.createCircle = function(){
+				ctx.save();
+				ctx.translate(this.x,this.y);
+				ctx.beginPath();
+				ctx.arc(0,0,this.radius,dToR(this.angleStart),dToR(this.angleEnd),false);
+				ctx.lineWidth = this.thickness;
+				ctx.strokeStyle = 'blue';
+				ctx.stroke();
+				ctx.restore();
+			}
+			this.updateCircle =function(){
+				ctx.save();
+				ctx.fillStyle = 'black';
+				ctx.fillRect(0,0,cw,ch);
+				ctx.restore();
+				if (this.angleStart<360) {
+					this.angleStart+=this.speed;
+				}else{
+					this.angleStart = 0;
+				}
+				this.angleEnd=this.angleStart+this.angleDistant;
+			}
+
+			this.init();
+		}
+		circle();
+
+
+
+	</script>
+</html>
