@@ -33,11 +33,13 @@
 			mousedown=false;             
 		}               
 		function eventMove(e){                 
-			e.preventDefault();                 
+			e.preventDefault(); 
 			if(mousedown){                     
-				if(e.changedTouches){                         
-					e=e.changedTouches[e.changedTouches.length-1];                     
-				}                     
+				// if(e.changedTouches){     
+
+				// 	e=e.changedTouches[e.changedTouches.length-1];                     
+				// }
+				e=e.changedTouches[0]                     
 				var x = (e.clientX + document.body.scrollLeft || e.pageX) - offsetX || 0,                         
 				y = (e.clientY + document.body.scrollTop || e.pageY) - offsetY || 0;                     
 				with(ctx){                    
@@ -51,8 +53,8 @@
 		canvas.height=h;             
 		canvas.style.backgroundImage='url('+img.src+')';             
 		ctx=canvas.getContext('2d');             
-		ctx.fillStyle='transparent';             
-		ctx.fillRect(0, 0, w, h);             
+		//ctx.fillStyle='transparent';             
+		//ctx.fillRect(0, 0, w, h);             
 		layer(ctx);               
 		ctx.globalCompositeOperation = 'destination-out';               
 		canvas.addEventListener('touchstart', eventDown);               
