@@ -35,11 +35,11 @@
 		function eventMove(e){                 
 			e.preventDefault(); 
 			if(mousedown){                     
-				// if(e.changedTouches){     
+				if(e.changedTouches){     
 
-				// 	e=e.changedTouches[e.changedTouches.length-1];                     
-				// }
-				e=e.changedTouches[0]                     
+					e=e.changedTouches[e.changedTouches.length-1];                     
+				}
+				//e=e.changedTouches[0]                     
 				var x = (e.clientX + document.body.scrollLeft || e.pageX) - offsetX || 0,                         
 				y = (e.clientY + document.body.scrollTop || e.pageY) - offsetY || 0;                     
 				with(ctx){                    
